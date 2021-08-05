@@ -1,5 +1,6 @@
 package Window;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,7 @@ public class MyJFrame extends JFrame {
 		initHandler();
 		initWindow();
 		initMenu();
+		setTextFont(new Font("Arial", Font.PLAIN, 12));
 	}
 
 	private void initHandler() {
@@ -57,15 +59,25 @@ public class MyJFrame extends JFrame {
 		return panel.getText();
 	}
 
+	public void toggleWordWrap(boolean wordWrap) {
+		panel.toggleWordWrap(wordWrap);
+	}
+
+	public void setTextFont(Font font) {
+		panel.setTextFont(font);
+	}
+
 	public class MyHandler implements ActionListener {
 
 		MyJFrame window;
 
 		FileFunctions fileFunctionsObj;
+		FormatFunctions formatFunctionsObj;
 
 		public MyHandler(MyJFrame window) {
 			this.window = window;
 			fileFunctionsObj = new FileFunctions(window);
+			formatFunctionsObj = new FormatFunctions(window);
 		}
 
 		@Override
@@ -91,8 +103,21 @@ public class MyJFrame extends JFrame {
 			case ("Exit"):
 				fileFunctionsObj.exit();
 				break;
-
+			case ("Word Wrap"):
+				formatFunctionsObj.wordWrap();
+				break;
+			case ("8"):
+			case ("12"):
+			case ("16"):
+			case ("20"):
+				formatFunctionsObj.setFontSize(Integer.parseInt(name));
+				break;
+			case ("Arial"):
+			case ("Times New Roman"):
+				formatFunctionsObj.setFont(name);
+				break;
 			}
 		}
 	}
+
 }

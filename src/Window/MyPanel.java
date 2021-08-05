@@ -1,5 +1,7 @@
 package Window;
 
+import java.awt.Font;
+
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
 
@@ -23,6 +25,15 @@ public class MyPanel extends JScrollPane {
 
 	public static String getText() {
 		return textArea.getText();
+	}
+
+	public void toggleWordWrap(boolean wordWrap) {
+		textArea.setLineWrap(wordWrap);
+		textArea.setWrapStyleWord(wordWrap);
+	}
+
+	public void setTextFont(Font font) {
+		textArea.setFont(font);		
 	}
 
 }

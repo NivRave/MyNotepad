@@ -8,7 +8,13 @@ import Window.MyJFrame.MyHandler;
 @SuppressWarnings("serial")
 public class MyMenu extends JMenuBar {
 	MyJMenuTab _file, _edit, _format, _view;
+	// File menu items
 	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_exit;
+	// Format menu items
+	JMenuItem _format_wrap, _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
+			_format_fontSize_16, _format_fontSize_20;
+	MyJMenuTab _format_font, _format_fontSize;
+
 	MyJFrame window;
 	MyHandler handler;
 
@@ -34,6 +40,7 @@ public class MyMenu extends JMenuBar {
 	// Init menu tabs items
 	public void initMenuItems() {
 		initFileMenu();
+		initFormatMenu();
 	}
 
 	// Init file menu items
@@ -50,11 +57,34 @@ public class MyMenu extends JMenuBar {
 		_file.add(_file_exit);
 	}
 
-	public void initEditMenu() {
-
+	public void initFormatMenu() {
+		_format_wrap = new MyJMenuItem("Word Wrap", handler);
+		_format.add(_format_wrap);
+		_format_font = new MyJMenuTab("Font", handler);
+		_format.add(_format_font);
+		_format_fontSize = new MyJMenuTab("Font Size", handler);
+		_format.add(_format_fontSize);
+		initFontOptions();
 	}
 
-	public void initFormatMenu() {
+	public void initFontOptions() {
+		// Font-type items
+		_format_font_Arial = new MyJMenuItem("Arial", handler);
+		_format_font.add(_format_font_Arial);
+		_format_font_TimesNewRoman = new MyJMenuItem("Times New Roman", handler);
+		_format_font.add(_format_font_TimesNewRoman);
+		// Font-size items
+		_format_fontSize_8 = new MyJMenuItem("8", handler);
+		_format_fontSize.add(_format_fontSize_8);
+		_format_fontSize_12 = new MyJMenuItem("12", handler);
+		_format_fontSize.add(_format_fontSize_12);
+		_format_fontSize_16 = new MyJMenuItem("16", handler);
+		_format_fontSize.add(_format_fontSize_16);
+		_format_fontSize_20 = new MyJMenuItem("20", handler);
+		_format_fontSize.add(_format_fontSize_20);
+	}
+
+	public void initEditMenu() {
 
 	}
 

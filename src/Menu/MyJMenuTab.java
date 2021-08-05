@@ -1,11 +1,14 @@
 package Menu;
+
 import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import Window.MyJFrame.MyHandler;
 
-public class MyJMenuTab extends JMenu{
-
-	public MyJMenuTab(String name) {
+@SuppressWarnings("serial")
+public class MyJMenuTab extends JMenu {
+	public MyJMenuTab(String name, MyHandler handler) {
 		super(name);
+		this.addActionListener(handler);
+		this.setActionCommand(name);
 	}
-	
+
 }

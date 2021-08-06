@@ -7,6 +7,11 @@ import Handlers.*;
 
 @SuppressWarnings("serial")
 public class MyMenu extends JMenuBar {
+	// Main frame
+	MyJFrame window;
+	// Action handler
+	MyHandler handler;
+	// Menu tabs
 	MyJMenuTab _file, _edit, _format, _view;
 	// File menu items
 	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_exit;
@@ -19,9 +24,7 @@ public class MyMenu extends JMenuBar {
 	// Edit menu items
 	JMenuItem _edit_undo, _edit_redo;
 
-	MyJFrame window;
-	MyHandler handler;
-
+	// Constructor
 	public MyMenu(MyJFrame window, MyHandler handler) {
 		super();
 		this.window = window;
@@ -30,6 +33,7 @@ public class MyMenu extends JMenuBar {
 		initMenuItems();
 	}
 
+	// Initialize menu tabs/options/categories
 	private void initMenuOptions() {
 		_file = new MyJMenuTab("File", handler);
 		add(_file);
@@ -41,7 +45,7 @@ public class MyMenu extends JMenuBar {
 		add(_view);
 	}
 
-	// Init menu tabs items
+	// Initialize menu items
 	public void initMenuItems() {
 		initFileMenu();
 		initEditMenu();
@@ -49,7 +53,7 @@ public class MyMenu extends JMenuBar {
 		initViewMenu();
 	}
 
-	// Init file menu items
+	// Initialize file menu items
 	public void initFileMenu() {
 		_file_new = new MyJMenuItem("New", handler);
 		_file.add(_file_new);
@@ -63,6 +67,15 @@ public class MyMenu extends JMenuBar {
 		_file.add(_file_exit);
 	}
 
+	// Initialize edit menu items
+	public void initEditMenu() {
+		_edit_undo = new MyJMenuItem("Undo", handler);
+		_edit.add(_edit_undo);
+		_edit_redo = new MyJMenuItem("Redo", handler);
+		_edit.add(_edit_redo);
+	}
+
+	// Initialize format menu items
 	public void initFormatMenu() {
 		_format_wrap = new MyJMenuItem("Word Wrap", handler);
 		_format.add(_format_wrap);
@@ -73,6 +86,7 @@ public class MyMenu extends JMenuBar {
 		initFontOptions();
 	}
 
+	// Initialize format-font related items
 	public void initFontOptions() {
 		// Font-type items
 		_format_font_Arial = new MyJMenuItem("Arial", handler);
@@ -94,13 +108,7 @@ public class MyMenu extends JMenuBar {
 		_format_fontSize.add(_format_fontSize_28);
 	}
 
-	public void initEditMenu() {
-		_edit_undo = new MyJMenuItem("Undo", handler);
-		_edit.add(_edit_undo);
-		_edit_redo = new MyJMenuItem("Redo", handler);
-		_edit.add(_edit_redo);
-	}
-
+	// Initialize view menu items
 	public void initViewMenu() {
 		_view_lightMode = new MyJMenuItem("lightMode", handler);
 		_view.add(_view_lightMode);

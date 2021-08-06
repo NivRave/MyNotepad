@@ -6,14 +6,15 @@ import OnclickFunctions.*;
 import Window.MyJFrame;
 
 public class MyHandler implements ActionListener {
-
+	// Main frame
 	MyJFrame window;
-
+	// Functions objects
 	FileFunctions fileFunctionsObj;
 	EditFunctions editFunctionsObj;
 	FormatFunctions formatFunctionsObj;
 	ViewFunctions viewFunctionsObj;
 
+	// Constructor
 	public MyHandler(MyJFrame window, FileFunctions fileF, EditFunctions editF, FormatFunctions formatF,
 			ViewFunctions viewF) {
 		this.window = window;
@@ -21,6 +22,11 @@ public class MyHandler implements ActionListener {
 		editFunctionsObj = editF;
 		formatFunctionsObj = formatF;
 		viewFunctionsObj = viewF;
+	}
+
+	// Get file functions object
+	public FileFunctions getFileObj() {
+		return fileFunctionsObj;
 	}
 
 	@Override

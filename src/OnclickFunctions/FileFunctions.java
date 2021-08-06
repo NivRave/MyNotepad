@@ -8,21 +8,27 @@ import Window.MyJFrame;
 
 public class FileFunctions {
 
+	// Main frame
 	MyJFrame window;
+	// Current file name/path
 	String fileName;
 	String filePath;
 
+	// Constructor
 	public FileFunctions(MyJFrame window) {
 		this.window = window;
 	}
 
+	// Create a new file method. Activated by key-binding 'Ctrl+n'
 	public void newFile() {
 		window.getPanel().clear();
 		window.setTitle("New File (Unsaved)");
+		window.setSavedState(false);
 		fileName = null;
 		filePath = null;
 	}
 
+	// Open a local file from file explorer using fileDialog
 	@SuppressWarnings("static-access")
 	public void openFile() {
 		FileDialog fileDialog = new FileDialog(window, "Open", FileDialog.LOAD);
@@ -47,6 +53,7 @@ public class FileFunctions {
 		}
 	}
 
+	//Save current file. If the file is a new file activates save as. Activated by key-binding 'Ctrl+s'
 	@SuppressWarnings("static-access")
 	public void saveFile() {
 		if (fileName != null) {
@@ -61,8 +68,10 @@ public class FileFunctions {
 		} else {
 			saveFileAs();
 		}
+		window.setSavedState(true);
 	}
 
+	//Save-as method. Lets the user save the file to a desired location with a custom name. Activated by key-binding 'Ctrl+Shift++s' 
 	@SuppressWarnings("static-access")
 	public void saveFileAs() {
 		FileDialog fileDialog = new FileDialog(window, "Save", FileDialog.SAVE);
@@ -81,7 +90,8 @@ public class FileFunctions {
 			// CREATE SPECIAL EXCEPTION
 		}
 	}
-
+	
+	//Exit without saving
 	public void exit() {
 		System.exit(0);
 	}

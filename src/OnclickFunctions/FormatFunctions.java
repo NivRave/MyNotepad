@@ -6,43 +6,51 @@ import Window.MyJFrame;
 
 public class FormatFunctions {
 
+	// Main frame
 	MyJFrame window;
+	// Font related variables
 	Font arial, timesNewRoman;
 	String activeFont;
+	// Word wrap indicator. true=activated, false=not activated.
 	boolean wordWrap;
 
+	// Constructor
 	public FormatFunctions(MyJFrame window) {
 		this.window = window;
 	}
 
+	// Initialize default font - Arial with size 12
 	public void initFontData() {
-		activeFont="Arial";
-		arial = new Font("Arial", Font.PLAIN, 8);
+		activeFont = "Arial";
+		arial = new Font("Arial", Font.PLAIN, 12);
 	}
 
+	// Word wrap toggler
 	public void wordWrap() {
 		wordWrap = !wordWrap;
 		window.getPanel().toggleWordWrap(wordWrap);
 	}
 
+	// Set current font to the give fontName
 	public void setFont(String fontName) {
-		activeFont=fontName;		
-		switch(activeFont) {
+		activeFont = fontName;
+		switch (activeFont) {
 		case ("Arial"):
 			window.getPanel().setTextFont(arial);
-		break;
+			break;
 		case ("Times New Roman"):
 			window.getPanel().setTextFont(timesNewRoman);
-		break;
+			break;
 		}
 	}
 
+	// Set font size and type
 	public void setFontSize(int fontSize) {
 		arial = new Font("Arial", Font.PLAIN, fontSize);
 		timesNewRoman = new Font("Times New Roman", Font.PLAIN, fontSize);
 		setFont(activeFont);
 	}
-	
-	//TODO: add bold method
+
+	// TODO: add bold method
 
 }

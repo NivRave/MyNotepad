@@ -11,8 +11,8 @@ public class FormatFunctions {
 	// Font related variables
 	Font arial, timesNewRoman;
 	String activeFont;
-	// Word wrap indicator. true=activated, false=not activated.
-	boolean wordWrap;
+//	// Word wrap indicator. true=activated, false=not activated.
+//	boolean wordWrap;
 
 	// Constructor
 	public FormatFunctions(MyJFrame window) {
@@ -25,11 +25,11 @@ public class FormatFunctions {
 		arial = new Font("Arial", Font.PLAIN, 12);
 	}
 
-	// Word wrap toggler
-	public void wordWrap() {
-		wordWrap = !wordWrap;
-		window.getPanel().toggleWordWrap(wordWrap);
-	}
+//	// Word wrap toggler
+//	public void wordWrap() {
+//		wordWrap = !wordWrap;
+//		window.getPanel().toggleWordWrap(wordWrap);
+//	}
 
 	// Set current font to the give fontName
 	public void setFont(String fontName) {
@@ -51,6 +51,15 @@ public class FormatFunctions {
 		setFont(activeFont);
 	}
 
-	// TODO: add bold method
+	// Toggle text bold/no bold
+	public void toggleBoldText() {
+		// TODO Auto-generated method stub
+		window.getPanel().toggleBoldText();
+	}
+
+	// Toggle text italic/no italic
+	public void toggleItalicText() {
+		window.getPanel().toggleItalicText();
+	}
 
 }

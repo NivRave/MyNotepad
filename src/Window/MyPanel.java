@@ -63,11 +63,11 @@ public class MyPanel extends JScrollPane {
 		return textArea.getText();
 	}
 
-	// Toggle word wrap status - activated/disabled
-	public void toggleWordWrap(boolean wordWrap) {
-		textArea.setLineWrap(wordWrap);
-		textArea.setWrapStyleWord(wordWrap);
-	}
+//	// Toggle word wrap status - activated/disabled
+//	public void toggleWordWrap(boolean wordWrap) {
+//		textArea.setLineWrap(wordWrap);
+//		textArea.setWrapStyleWord(wordWrap);
+//	}
 
 	// Set text area active font
 	public void setTextFont(Font font) {
@@ -86,6 +86,16 @@ public class MyPanel extends JScrollPane {
 			textArea.setForeground(Color.decode("#DDDDDD"));
 			break;
 		}
+	}
+
+	// Toggle typed text bold status. Activated on 'Ctrl+b' or through 'edit' menu
+	@SuppressWarnings("static-access")
+	public void toggleBoldText() {
+		textArea.toggleBoldText();
+	}
+
+	public void toggleItalicText() {
+		textArea.toggleItalicText();
 	}
 
 }

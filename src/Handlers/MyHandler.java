@@ -61,9 +61,6 @@ public class MyHandler implements ActionListener {
 			editFunctionsObj.redo();
 			break;
 		// Font events
-		case ("Word Wrap"):
-			formatFunctionsObj.wordWrap();
-			break;
 		// Font size events
 		case ("8"):
 		case ("12"):
@@ -77,6 +74,13 @@ public class MyHandler implements ActionListener {
 		case ("Arial"):
 		case ("Times New Roman"):
 			formatFunctionsObj.setFont(name);
+			break;
+		// Font design events
+		case ("Bold"):
+			formatFunctionsObj.toggleBoldText();
+			break;
+		case ("Italic"):
+			formatFunctionsObj.toggleItalicText();
 			break;
 		// View mode events
 		case ("lightMode"):

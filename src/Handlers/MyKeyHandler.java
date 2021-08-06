@@ -51,6 +51,14 @@ public class MyKeyHandler implements KeyListener {
 		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_N) {
 			fileFunctionsObj.newFile();
 		}
+		// Ctrl+b = bold text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
+			formatFunctionsObj.toggleBoldText();
+		}
+		// Ctrl+i = italic text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
+			formatFunctionsObj.toggleItalicText();
+		}
 		// Set save state=true if a text-changing key has been pressed
 		if (window.getSavedState() == true) {
 			if (isChar(e.getKeyCode()) == true)

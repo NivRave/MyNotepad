@@ -15,14 +15,14 @@ public class MyMenu extends JMenuBar {
 	MyJMenuTab _file, _edit, _format, _view;
 	// File menu items
 	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_exit;
+	// Edit menu items
+	JMenuItem _edit_undo, _edit_redo, _format_bold, _format_italic;
 	// Format menu items
 	JMenuItem _format_wrap, _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
 			_format_fontSize_16, _format_fontSize_20, _format_fontSize_24, _format_fontSize_28;
 	MyJMenuTab _format_font, _format_fontSize;
 	// View menu items
 	JMenuItem _view_lightMode, _view_darkMode;
-	// Edit menu items
-	JMenuItem _edit_undo, _edit_redo;
 
 	// Constructor
 	public MyMenu(MyJFrame window, MyHandler handler) {
@@ -84,6 +84,10 @@ public class MyMenu extends JMenuBar {
 		_format_fontSize = new MyJMenuTab("Font Size", handler);
 		_format.add(_format_fontSize);
 		initFontOptions();
+		_format_bold = new MyJMenuItem("Bold", handler);
+		_format.add(_format_bold);
+		_format_italic = new MyJMenuItem("Italic", handler);
+		_format.add(_format_italic);
 	}
 
 	// Initialize format-font related items

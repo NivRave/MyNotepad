@@ -89,9 +89,10 @@ public class MyJFrame extends JFrame {
 							JOptionPane.YES_NO_CANCEL_OPTION);
 					if (result == JOptionPane.NO_OPTION)
 						frame.setDefaultCloseOperation(MyJFrame.EXIT_ON_CLOSE);
-					if (result == JOptionPane.YES_OPTION)
+					if (result == JOptionPane.YES_OPTION) {
 						handler.getFileObj().saveFile();
-					frame.setDefaultCloseOperation(MyJFrame.EXIT_ON_CLOSE);
+						frame.setDefaultCloseOperation(MyJFrame.EXIT_ON_CLOSE);
+					}	
 				} else {
 					frame.setDefaultCloseOperation(MyJFrame.EXIT_ON_CLOSE);
 				}

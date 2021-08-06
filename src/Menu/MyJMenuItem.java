@@ -11,7 +11,6 @@ public class MyJMenuItem extends JMenuItem {
 		super(name);
 		this.addActionListener(handler);
 		this.setActionCommand(getName());
-		System.out.println(getName());
 	}
 
 }

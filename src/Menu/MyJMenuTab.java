@@ -1,7 +1,7 @@
 package Menu;
 
 import javax.swing.JMenu;
-import Window.MyJFrame.MyHandler;
+import Handlers.*;
 
 @SuppressWarnings("serial")
 public class MyJMenuTab extends JMenu {

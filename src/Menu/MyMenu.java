@@ -3,7 +3,7 @@ package Menu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import Window.*;
-import Window.MyJFrame.MyHandler;
+import Handlers.*;
 
 @SuppressWarnings("serial")
 public class MyMenu extends JMenuBar {

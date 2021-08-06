@@ -17,5 +17,4 @@ public class Notepad {
 		window = new MyJFrame("My Notepad");
 		window.setVisible(true);
 	}
-
 }

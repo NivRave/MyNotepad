@@ -9,16 +9,23 @@ import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.undo.UndoManager;
 
+import Handlers.MyKeyHandler;
+
 @SuppressWarnings("serial")
 public class MyPanel extends JScrollPane {
 	// Make sure that static works - used it for the super constructor
 	static MyJTextArea textArea = new MyJTextArea();
 	UndoManager undoManager;
 
-	public MyPanel() {
+	public MyPanel(MyKeyHandler keyHandler) {
 		super(textArea, VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		addKListener(keyHandler);
 		setUndo();
 		setBorder(BorderFactory.createEmptyBorder());
+	}
+
+	private void addKListener(MyKeyHandler keyHandler) {
+		textArea.addKeyListener(keyHandler);
 	}
 
 	public void setUndo() {

@@ -12,8 +12,12 @@ public class MyMenu extends JMenuBar {
 	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_exit;
 	// Format menu items
 	JMenuItem _format_wrap, _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
-			_format_fontSize_16, _format_fontSize_20;
+			_format_fontSize_16, _format_fontSize_20, _format_fontSize_24, _format_fontSize_28;
 	MyJMenuTab _format_font, _format_fontSize;
+	// View menu items
+	JMenuItem _view_lightMode, _view_darkMode;
+	// Edit menu items
+	JMenuItem _edit_undo, _edit_redo;
 
 	MyJFrame window;
 	MyHandler handler;
@@ -40,7 +44,9 @@ public class MyMenu extends JMenuBar {
 	// Init menu tabs items
 	public void initMenuItems() {
 		initFileMenu();
+		initEditMenu();
 		initFormatMenu();
+		initViewMenu();
 	}
 
 	// Init file menu items
@@ -82,14 +88,24 @@ public class MyMenu extends JMenuBar {
 		_format_fontSize.add(_format_fontSize_16);
 		_format_fontSize_20 = new MyJMenuItem("20", handler);
 		_format_fontSize.add(_format_fontSize_20);
+		_format_fontSize_24 = new MyJMenuItem("24", handler);
+		_format_fontSize.add(_format_fontSize_24);
+		_format_fontSize_28 = new MyJMenuItem("28", handler);
+		_format_fontSize.add(_format_fontSize_28);
 	}
 
 	public void initEditMenu() {
-
+		_edit_undo = new MyJMenuItem("Undo", handler);
+		_edit.add(_edit_undo);
+		_edit_redo = new MyJMenuItem("Redo", handler);
+		_edit.add(_edit_redo);
 	}
 
 	public void initViewMenu() {
-
+		_view_lightMode = new MyJMenuItem("lightMode", handler);
+		_view.add(_view_lightMode);
+		_view_darkMode = new MyJMenuItem("darkMode", handler);
+		_view.add(_view_darkMode);
 	}
 
 }

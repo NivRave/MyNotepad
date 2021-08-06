@@ -22,17 +22,17 @@ public class FormatFunctions {
 
 	public void wordWrap() {
 		wordWrap = !wordWrap;
-		window.toggleWordWrap(wordWrap);
+		window.getPanel().toggleWordWrap(wordWrap);
 	}
 
 	public void setFont(String fontName) {
 		activeFont=fontName;		
 		switch(activeFont) {
 		case ("Arial"):
-			window.setTextFont(arial);
+			window.getPanel().setTextFont(arial);
 		break;
 		case ("Times New Roman"):
-			window.setTextFont(timesNewRoman);
+			window.getPanel().setTextFont(timesNewRoman);
 		break;
 		}
 	}

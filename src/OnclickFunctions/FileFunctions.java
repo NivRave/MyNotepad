@@ -18,11 +18,13 @@ public class FileFunctions {
 	}
 
 	public void newFile() {
-		window.newFile();
+		window.getPanel().clear();
+		window.setTitle("New File (Unsaved)");
 		fileName = null;
 		filePath = null;
 	}
 
+	@SuppressWarnings("static-access")
 	public void openFile() {
 		FileDialog fileDialog = new FileDialog(window, "Open", FileDialog.LOAD);
 		fileDialog.setVisible(true);
@@ -34,11 +36,11 @@ public class FileFunctions {
 		}
 		try {
 			BufferedReader bufferReader = new BufferedReader(new FileReader(filePath + fileName));
-			window.clear();
+			window.getPanel().clear();
 			String line;
 
 			while ((line = bufferReader.readLine()) != null) {
-				window.append(line + "\n");
+				window.getPanel().append(line + "\n");
 			}
 			bufferReader.close();
 		} catch (Exception e) {
@@ -46,12 +48,13 @@ public class FileFunctions {
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	public void saveFile() {
 		if (fileName != null) {
 			try {
 				System.out.println(filePath + fileName);
 				FileWriter fileWriter = new FileWriter(filePath + fileName);
-				fileWriter.write(window.getText());
+				fileWriter.write(window.getPanel().getText());
 				fileWriter.close();
 			} catch (Exception e) {
 				// CREATE SPECIAL EXCEPTION
@@ -61,6 +64,7 @@ public class FileFunctions {
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	public void saveFileAs() {
 		FileDialog fileDialog = new FileDialog(window, "Save", FileDialog.SAVE);
 		fileDialog.setVisible(true);
@@ -72,7 +76,7 @@ public class FileFunctions {
 		}
 		try {
 			FileWriter fileWriter = new FileWriter(filePath + fileName + ".txt");
-			fileWriter.write(window.getText());
+			fileWriter.write(window.getPanel().getText());
 			fileWriter.close();
 		} catch (Exception e) {
 			// CREATE SPECIAL EXCEPTION

@@ -1,18 +1,37 @@
 package Window;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.undo.UndoManager;
 
 @SuppressWarnings("serial")
 public class MyPanel extends JScrollPane {
 	// Make sure that static works - used it for the super constructor
 	static MyJTextArea textArea = new MyJTextArea();
+	UndoManager undoManager;
 
 	public MyPanel() {
 		super(textArea, VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		setUndo();
 		setBorder(BorderFactory.createEmptyBorder());
+	}
+
+	public void setUndo() {
+		undoManager = new UndoManager();
+		textArea.getDocument().addUndoableEditListener(new UndoableEditListener() {
+			public void undoableEditHappened(UndoableEditEvent e) {
+				undoManager.addEdit(e.getEdit());
+			}
+		});
+	}
+
+	public UndoManager getUndoManager() {
+		return undoManager;
 	}
 
 	public void clear() {
@@ -33,7 +52,20 @@ public class MyPanel extends JScrollPane {
 	}
 
 	public void setTextFont(Font font) {
-		textArea.setFont(font);		
+		textArea.setFont(font);
+	}
+
+	public void setColors(String mode) {
+		switch (mode) {
+		case ("lightMode"):
+			textArea.setBackground(Color.decode("#DDDDDD"));
+			textArea.setForeground(Color.decode("#423F3E"));
+			break;
+		case ("darkMode"):
+			textArea.setBackground(Color.decode("#423F3E"));
+			textArea.setForeground(Color.decode("#DDDDDD"));
+			break;
+		}
 	}
 
 }

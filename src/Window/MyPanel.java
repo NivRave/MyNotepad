@@ -13,10 +13,13 @@ import Handlers.MyKeyHandler;
 
 @SuppressWarnings("serial")
 public class MyPanel extends JScrollPane {
-	// Make sure that static works - used it for the super constructor
-	static MyJTextArea textArea = new MyJTextArea();
+
+	// Singleton instance of a MyJTextArea object
+	static MyJTextArea textArea = MyJTextArea.getInstance();
+	// UndoManager object
 	UndoManager undoManager;
 
+	// Constructor
 	public MyPanel(MyKeyHandler keyHandler) {
 		super(textArea, VERTICAL_SCROLLBAR_AS_NEEDED, HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		addKListener(keyHandler);
@@ -24,10 +27,13 @@ public class MyPanel extends JScrollPane {
 		setBorder(BorderFactory.createEmptyBorder());
 	}
 
+	// Add keyHandler as a key listener
 	private void addKListener(MyKeyHandler keyHandler) {
 		textArea.addKeyListener(keyHandler);
 	}
 
+	// Set the undo method. Catch an undo event using UndoableEditListener() if
+	// undoableEditHappened() happens in the textArea.
 	public void setUndo() {
 		undoManager = new UndoManager();
 		textArea.getDocument().addUndoableEditListener(new UndoableEditListener() {
@@ -37,31 +43,38 @@ public class MyPanel extends JScrollPane {
 		});
 	}
 
+	// Get undo namager object
 	public UndoManager getUndoManager() {
 		return undoManager;
 	}
 
+	// Clear the text area
 	public void clear() {
 		textArea.setText("");
 	}
 
+	// Append to the text area
 	public static void append(String string) {
 		textArea.append(string);
 	}
 
+	// Get the text in the text area
 	public static String getText() {
 		return textArea.getText();
 	}
 
+	// Toggle word wrap status - activated/disabled
 	public void toggleWordWrap(boolean wordWrap) {
 		textArea.setLineWrap(wordWrap);
 		textArea.setWrapStyleWord(wordWrap);
 	}
 
+	// Set text area active font
 	public void setTextFont(Font font) {
 		textArea.setFont(font);
 	}
 
+	// Set view theme
 	public void setColors(String mode) {
 		switch (mode) {
 		case ("lightMode"):

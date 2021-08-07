@@ -53,7 +53,8 @@ public class FileFunctions {
 		}
 	}
 
-	//Save current file. If the file is a new file activates save as. Activated by key-binding 'Ctrl+s'
+	// Save current file. If the file is a new file activates save as. Activated by
+	// key-binding 'Ctrl+s'
 	@SuppressWarnings("static-access")
 	public void saveFile() {
 		if (fileName != null) {
@@ -71,7 +72,8 @@ public class FileFunctions {
 		window.setSavedState(true);
 	}
 
-	//Save-as method. Lets the user save the file to a desired location with a custom name. Activated by key-binding 'Ctrl+Shift++s' 
+	// Save-as method. Lets the user save the file to a desired location with a
+	// custom name. Activated by key-binding 'Ctrl+Shift++s'
 	@SuppressWarnings("static-access")
 	public void saveFileAs() {
 		FileDialog fileDialog = new FileDialog(window, "Save", FileDialog.SAVE);
@@ -90,9 +92,14 @@ public class FileFunctions {
 			// CREATE SPECIAL EXCEPTION
 		}
 	}
-	
-	//Exit without saving
+
+	// Exit without saving
 	public void exit() {
 		System.exit(0);
+	}
+
+	// Open print menu
+	public void print() {
+		window.getPanel().printContent();
 	}
 }

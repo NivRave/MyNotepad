@@ -1,5 +1,7 @@
 package Window;
 
+import java.awt.Color;
+
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -13,11 +15,18 @@ public class MyJTextArea extends JTextPane {
 	private static MyJTextArea textAreaInstance = null;
 	// Attribute objects
 	private static SimpleAttributeSet attributes = new SimpleAttributeSet();
-	// Bold indicator. true=active, false=inactive
-	boolean boldState, italicState;
+	// Text-related state saving variables
+	boolean boldState, italicState; // Bold/italic indicator. true=active, false=inactive
+	Color currentColor; // Current color
+	int fontSize; // Current font size
+	String fontFamily; // Current font family
 
+	// Private constructor to match the singleton design pattern
 	private MyJTextArea() {
 		super();
+		currentColor = Color.black;
+		fontSize = 12;
+		fontFamily="Arial";
 	}
 
 	// Get/create singleton instance
@@ -50,11 +59,31 @@ public class MyJTextArea extends JTextPane {
 		setAttributes();
 	}
 
-	// Sets current attribute set according to the saved boldState/italicState
+	// Change the written text's color
+	public void changeTextColor(Color color) {
+		currentColor = color;
+		setAttributes();
+	}
+
+	// Change the written text's size
+	public void changeFontSize(int size) {
+		fontSize = size;
+		setAttributes();
+	}
+
+	// Sets current attribute set according
 	private void setAttributes() {
 		attributes.addAttribute(StyleConstants.CharacterConstants.Bold, boldState);
 		attributes.addAttribute(StyleConstants.CharacterConstants.Italic, italicState);
+		attributes.addAttribute(StyleConstants.Foreground, currentColor);
+		attributes.addAttribute(StyleConstants.FontSize, fontSize);
+		attributes.addAttribute(StyleConstants.FontFamily, fontFamily);
 		setCharacterAttributes(attributes, true);
+	}
+
+	public void setTextFont(String font) {
+		fontFamily=font;
+		setAttributes();
 	}
 
 }

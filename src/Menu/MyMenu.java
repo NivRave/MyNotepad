@@ -14,13 +14,14 @@ public class MyMenu extends JMenuBar {
 	// Menu tabs
 	MyJMenuTab _file, _edit, _format, _view;
 	// File menu items
-	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_exit;
+	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_print, _file_exit;
 	// Edit menu items
 	JMenuItem _edit_undo, _edit_redo, _format_bold, _format_italic;
 	// Format menu items
-	JMenuItem _format_wrap, _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
-			_format_fontSize_16, _format_fontSize_20, _format_fontSize_24, _format_fontSize_28;
-	MyJMenuTab _format_font, _format_fontSize;
+	JMenuItem _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
+			_format_fontSize_16, _format_fontSize_20, _format_fontSize_24, _format_fontSize_28, _format_colorBlack,
+			__format_colorWhite, _format_colorBlue, _format_colorRed, _format_colorYellow;
+	MyJMenuTab _format_font, _format_fontSize, _format_textColor;
 	// View menu items
 	JMenuItem _view_lightMode, _view_darkMode;
 
@@ -63,6 +64,8 @@ public class MyMenu extends JMenuBar {
 		_file.add(_file_save);
 		_file_saveAs = new MyJMenuItem("Save As...", handler);
 		_file.add(_file_saveAs);
+		_file_print = new MyJMenuItem("Print", handler);
+		_file.add(_file_print);
 		_file_exit = new MyJMenuItem("Exit", handler);
 		_file.add(_file_exit);
 	}
@@ -77,12 +80,12 @@ public class MyMenu extends JMenuBar {
 
 	// Initialize format menu items
 	public void initFormatMenu() {
-		_format_wrap = new MyJMenuItem("Word Wrap", handler);
-		_format.add(_format_wrap);
 		_format_font = new MyJMenuTab("Font", handler);
 		_format.add(_format_font);
 		_format_fontSize = new MyJMenuTab("Font Size", handler);
 		_format.add(_format_fontSize);
+		_format_textColor = new MyJMenuTab("Font color", handler);
+		_format.add(_format_textColor);
 		initFontOptions();
 		_format_bold = new MyJMenuItem("Bold", handler);
 		_format.add(_format_bold);
@@ -110,6 +113,17 @@ public class MyMenu extends JMenuBar {
 		_format_fontSize.add(_format_fontSize_24);
 		_format_fontSize_28 = new MyJMenuItem("28", handler);
 		_format_fontSize.add(_format_fontSize_28);
+		// Font-color items
+		_format_colorBlack = new MyJMenuItem("Black font", handler);
+		_format_textColor.add(_format_colorBlack);
+		__format_colorWhite = new MyJMenuItem("White font", handler);
+		_format_textColor.add(__format_colorWhite);
+		_format_colorBlue = new MyJMenuItem("Blue font", handler);
+		_format_textColor.add(_format_colorBlue);
+		_format_colorRed = new MyJMenuItem("Red font", handler);
+		_format_textColor.add(_format_colorRed);
+		_format_colorYellow = new MyJMenuItem("Yellow font", handler);
+		_format_textColor.add(_format_colorYellow);
 	}
 
 	// Initialize view menu items
@@ -119,5 +133,4 @@ public class MyMenu extends JMenuBar {
 		_view_darkMode = new MyJMenuItem("darkMode", handler);
 		_view.add(_view_darkMode);
 	}
-
 }

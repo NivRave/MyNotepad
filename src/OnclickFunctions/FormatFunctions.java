@@ -1,6 +1,6 @@
 package OnclickFunctions;
 
-import java.awt.Font;
+import java.awt.Color;
 
 import Window.MyJFrame;
 
@@ -8,46 +8,24 @@ public class FormatFunctions {
 
 	// Main frame
 	MyJFrame window;
-	// Font related variables
-	Font arial, timesNewRoman;
-	String activeFont;
 
 	// Constructor
 	public FormatFunctions(MyJFrame window) {
 		this.window = window;
-		initFontData();
 	}
-
-	// Initialize default font - Arial with size 12
-	public void initFontData() {
-		activeFont = "Arial";
-		arial = new Font("Arial", Font.PLAIN, 12);
-	}
-
 
 	// Set current font to the give fontName
 	public void setFont(String fontName) {
-		activeFont = fontName;
-		switch (activeFont) {
-		case ("Arial"):
-			window.getPanel().setTextFont(arial);
-			break;
-		case ("Times New Roman"):
-			window.getPanel().setTextFont(timesNewRoman);
-			break;
-		}
+		window.getPanel().setTextFont(fontName);
 	}
 
 	// Set font size and type
 	public void setFontSize(int fontSize) {
-		arial = new Font("Arial", Font.PLAIN, fontSize);
-		timesNewRoman = new Font("Times New Roman", Font.PLAIN, fontSize);
-		setFont(activeFont);
+		window.getPanel().changeFontSize(fontSize);
 	}
 
 	// Toggle text bold/no bold
 	public void toggleBoldText() {
-		// TODO Auto-generated method stub
 		window.getPanel().toggleBoldText();
 	}
 
@@ -56,4 +34,24 @@ public class FormatFunctions {
 		window.getPanel().toggleItalicText();
 	}
 
+	// Change current text color
+	public void changeFontColor(String name) {
+		switch (name.substring(0, name.indexOf(" "))) {
+		case ("Black"):
+			window.getPanel().changeTextColor(Color.black);
+			break;
+		case ("White"):
+			window.getPanel().changeTextColor(Color.white);
+			break;
+		case ("Blue"):
+			window.getPanel().changeTextColor(Color.blue);
+			break;
+		case ("Red"):
+			window.getPanel().changeTextColor(Color.red);
+			break;
+		case ("Yellow"):
+			window.getPanel().changeTextColor(Color.yellow);
+			break;
+		}
+	}
 }

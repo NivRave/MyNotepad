@@ -50,6 +50,9 @@ public class MyHandler implements ActionListener {
 		case ("Save"):
 			fileFunctionsObj.saveFile();
 			break;
+		case ("Print"):
+			fileFunctionsObj.print();
+			break;
 		case ("Exit"):
 			fileFunctionsObj.exit();
 			break;
@@ -81,6 +84,14 @@ public class MyHandler implements ActionListener {
 			break;
 		case ("Italic"):
 			formatFunctionsObj.toggleItalicText();
+			break;
+		// Font color events
+		case ("Black font"):
+		case ("White font"):
+		case ("Blue font"):
+		case ("Red font"):
+		case ("Yellow font"):
+			formatFunctionsObj.changeFontColor(name);
 			break;
 		// View mode events
 		case ("lightMode"):

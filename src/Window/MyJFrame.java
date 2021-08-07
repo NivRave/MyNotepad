@@ -1,6 +1,5 @@
 package Window;
 
-import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -30,7 +29,6 @@ public class MyJFrame extends JFrame {
 		initWindow();
 		initMenu();
 		savedState = true;
-		panel.setTextFont(new Font("Arial", Font.PLAIN, 12));
 	}
 
 	// Initialize the handlers and functions objects

@@ -1,7 +1,7 @@
 package Window;
 
 import java.awt.Color;
-import java.awt.Font;
+import java.awt.print.PrinterException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
@@ -64,8 +64,8 @@ public class MyPanel extends JScrollPane {
 	}
 
 	// Set text area active font
-	public void setTextFont(Font font) {
-		textArea.setFont(font);
+	public void setTextFont(String fontName) {
+		textArea.setTextFont(fontName);
 	}
 
 	// Set view theme
@@ -83,13 +83,39 @@ public class MyPanel extends JScrollPane {
 	}
 
 	// Toggle typed text bold status. Activated on 'Ctrl+b' or through 'edit' menu
-	@SuppressWarnings("static-access")
 	public void toggleBoldText() {
 		textArea.toggleBoldText();
 	}
 
+	// Toggle typed text italic status. Activated on 'Ctrl+i' or through 'edit' men
 	public void toggleItalicText() {
 		textArea.toggleItalicText();
 	}
 
+	// Print the file
+	public void printContent() {
+		try {
+			textArea.print();
+		} catch (PrinterException e) {
+			System.err.format("Printing error!", e.getMessage());
+		}
+	}
+
+	// Change text color
+	public void changeTextColor(Color color) {
+		textArea.changeTextColor(color);
+	}
+
+	// Change font size
+	public void changeFontSize(int fontSize) {
+		textArea.changeFontSize(fontSize);
+	}
+
+	// Notify if a certain text is selected in the document
+	public boolean isSelected() {
+		if (textArea.getSelectedText() != null)
+			return true;
+		else
+			return false;
+	}
 }

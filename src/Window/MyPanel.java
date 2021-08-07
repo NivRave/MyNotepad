@@ -63,12 +63,6 @@ public class MyPanel extends JScrollPane {
 		return textArea.getText();
 	}
 
-//	// Toggle word wrap status - activated/disabled
-//	public void toggleWordWrap(boolean wordWrap) {
-//		textArea.setLineWrap(wordWrap);
-//		textArea.setWrapStyleWord(wordWrap);
-//	}
-
 	// Set text area active font
 	public void setTextFont(Font font) {
 		textArea.setFont(font);

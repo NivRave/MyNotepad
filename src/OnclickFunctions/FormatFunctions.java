@@ -11,12 +11,11 @@ public class FormatFunctions {
 	// Font related variables
 	Font arial, timesNewRoman;
 	String activeFont;
-//	// Word wrap indicator. true=activated, false=not activated.
-//	boolean wordWrap;
 
 	// Constructor
 	public FormatFunctions(MyJFrame window) {
 		this.window = window;
+		initFontData();
 	}
 
 	// Initialize default font - Arial with size 12
@@ -25,11 +24,6 @@ public class FormatFunctions {
 		arial = new Font("Arial", Font.PLAIN, 12);
 	}
 
-//	// Word wrap toggler
-//	public void wordWrap() {
-//		wordWrap = !wordWrap;
-//		window.getPanel().toggleWordWrap(wordWrap);
-//	}
 
 	// Set current font to the give fontName
 	public void setFont(String fontName) {

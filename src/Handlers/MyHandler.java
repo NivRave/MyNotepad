@@ -93,6 +93,10 @@ public class MyHandler implements ActionListener {
 		case ("Yellow font"):
 			formatFunctionsObj.changeFontColor(name);
 			break;
+		// Mark text events
+		case ("Mark text"):
+			formatFunctionsObj.markText();
+			break;
 		// View mode events
 		case ("lightMode"):
 		case ("darkMode"):

@@ -20,7 +20,7 @@ public class MyMenu extends JMenuBar {
 	// Format menu items
 	JMenuItem _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
 			_format_fontSize_16, _format_fontSize_20, _format_fontSize_24, _format_fontSize_28, _format_colorBlack,
-			__format_colorWhite, _format_colorBlue, _format_colorRed, _format_colorYellow;
+			__format_colorWhite, _format_colorBlue, _format_colorRed, _format_colorYellow,__format_markText;
 	MyJMenuTab _format_font, _format_fontSize, _format_textColor;
 	// View menu items
 	JMenuItem _view_lightMode, _view_darkMode;
@@ -91,6 +91,8 @@ public class MyMenu extends JMenuBar {
 		_format.add(_format_bold);
 		_format_italic = new MyJMenuItem("Italic", handler);
 		_format.add(_format_italic);
+		__format_markText= new MyJMenuItem("Mark text", handler);
+		_format.add(__format_markText);
 	}
 
 	// Initialize format-font related items

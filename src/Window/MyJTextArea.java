@@ -26,7 +26,7 @@ public class MyJTextArea extends JTextPane {
 		super();
 		currentColor = Color.black;
 		fontSize = 12;
-		fontFamily="Arial";
+		fontFamily = "Arial";
 	}
 
 	// Get/create singleton instance
@@ -82,8 +82,19 @@ public class MyJTextArea extends JTextPane {
 	}
 
 	public void setTextFont(String font) {
-		fontFamily=font;
+		fontFamily = font;
 		setAttributes();
 	}
 
+	// Mark selected text
+	public void markText() {
+		attributes.addAttribute(StyleConstants.Background, Color.yellow);
+		setCharacterAttributes(attributes, true);
+	}
+
+	// Revert mark text state
+	public void noMark() {
+		attributes.addAttribute(StyleConstants.Background, Color.white);
+		setCharacterAttributes(attributes, true);
+	}
 }

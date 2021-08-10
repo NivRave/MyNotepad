@@ -118,4 +118,13 @@ public class MyPanel extends JScrollPane {
 		else
 			return false;
 	}
+
+	// Mark text in yellow
+	public void markText() {
+	textArea.markText();	
+	}
+
+	public void noMark() {
+		textArea.noMark();
+	}
 }

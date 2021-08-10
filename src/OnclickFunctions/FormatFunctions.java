@@ -54,4 +54,13 @@ public class FormatFunctions {
 			break;
 		}
 	}
+
+	// Mark-Unmark text
+	public void markText() {
+		window.getPanel().markText();
+	}
+
+	public void noMark() {
+		window.getPanel().noMark();		
+	}
 }

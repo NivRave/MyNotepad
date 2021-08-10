@@ -39,7 +39,7 @@ public class MyKeyHandler implements KeyListener {
 			} else
 				fileFunctionsObj.saveFile();
 		}
-		if (window.getPanel().isSelected() == true) {
+		//if (window.getPanel().isSelected() == true) {
 			// Ctrl+b = bold text
 			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
 				//formatFunctionsObj.toggleSpecificBoldText();
@@ -48,7 +48,7 @@ public class MyKeyHandler implements KeyListener {
 			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
 				//formatFunctionsObj.toggleSpecificItalicText();
 			}
-		} else {
+		//} else {
 			// Ctrl+b = bold text
 			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
 				formatFunctionsObj.toggleBoldText();
@@ -57,7 +57,12 @@ public class MyKeyHandler implements KeyListener {
 			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
 				formatFunctionsObj.toggleItalicText();
 			}
-		}
+			//Toggle mark text
+			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_M) {
+				formatFunctionsObj.markText();
+			}
+			
+		//}
 		// Ctrl+z = undo
 		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
 			editFunctionsObj.undo();
@@ -77,6 +82,7 @@ public class MyKeyHandler implements KeyListener {
 		// Set save state=true if a text-changing key has been pressed
 		if (window.getSavedState() == true) {
 			if (isChar(e.getKeyCode()) == true)
+				formatFunctionsObj.noMark();
 				window.setSavedState(false);
 		}
 	}

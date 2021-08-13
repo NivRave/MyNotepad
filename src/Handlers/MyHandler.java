@@ -53,6 +53,12 @@ public class MyHandler implements ActionListener {
 		case ("Print"):
 			fileFunctionsObj.print();
 			break;
+		case ("Words count"):
+			fileFunctionsObj.countWords();
+			break;
+		case ("Characters count"):
+			fileFunctionsObj.countCharacters();
+			break;
 		case ("Exit"):
 			fileFunctionsObj.exit();
 			break;
@@ -62,6 +68,15 @@ public class MyHandler implements ActionListener {
 			break;
 		case ("Redo"):
 			editFunctionsObj.redo();
+			break;
+		case ("Copy"):
+			editFunctionsObj.copy();
+			break;
+		case ("Cut"):
+			editFunctionsObj.cut();
+			break;
+		case ("Paste"):
+			editFunctionsObj.paste();
 			break;
 		// Font events
 		// Font size events

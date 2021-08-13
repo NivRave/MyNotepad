@@ -12,13 +12,14 @@ import OnclickFunctions.*;
 
 @SuppressWarnings("serial")
 public class MyJFrame extends JFrame {
-	
+
 	// Panel and menu
-	MyPanel panel;
+	Panel panel;
 	MyMenu menuBar;
 	// Handlers
 	MyHandler handler;
 	MyKeyHandler keyHandler;
+	MyMouseListener mouseHandler;
 	// Save state indicator - true=file is saved, false=file is unsaved
 	boolean savedState;
 
@@ -40,13 +41,15 @@ public class MyJFrame extends JFrame {
 
 		handler = new MyHandler(this, fileFunctionsObj, editFunctionsObj, formatFunctionsObj, viewFunctionsObj);
 		keyHandler = new MyKeyHandler(this, fileFunctionsObj, editFunctionsObj, formatFunctionsObj, viewFunctionsObj);
+		mouseHandler = new MyMouseListener(this, fileFunctionsObj, editFunctionsObj, formatFunctionsObj,
+				viewFunctionsObj);
 	}
 
 	// Initialize the window and panel
 	private void initWindow() {
 		setSize(800, 600);
 		setCloseMethod();
-		panel = new MyPanel(keyHandler);
+		panel = new Panel(keyHandler, mouseHandler);
 		add(panel);
 	}
 
@@ -57,8 +60,13 @@ public class MyJFrame extends JFrame {
 	}
 
 	// Get the used panel
-	public MyPanel getPanel() {
+	public Panel getPanel() {
 		return panel;
+	}
+
+	// Get current handler
+	public MyHandler getHandler() {
+		return handler;
 	}
 
 	// Get saved state status
@@ -90,7 +98,7 @@ public class MyJFrame extends JFrame {
 					if (result == JOptionPane.YES_OPTION) {
 						handler.getFileObj().saveFile();
 						frame.setDefaultCloseOperation(MyJFrame.EXIT_ON_CLOSE);
-					}	
+					}
 				} else {
 					frame.setDefaultCloseOperation(MyJFrame.EXIT_ON_CLOSE);
 				}

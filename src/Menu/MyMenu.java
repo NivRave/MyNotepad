@@ -14,13 +14,15 @@ public class MyMenu extends JMenuBar {
 	// Menu tabs
 	MyJMenuTab _file, _edit, _format, _view;
 	// File menu items
-	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_print, _file_exit;
+	MyJMenuTab _file_info;
+	JMenuItem _file_new, _file_open, _file_save, _file_saveAs, _file_print, _file_info_words, _file_info_characters,
+			_file_exit;
 	// Edit menu items
 	JMenuItem _edit_undo, _edit_redo, _format_bold, _format_italic;
 	// Format menu items
 	JMenuItem _format_font_Arial, _format_font_TimesNewRoman, _format_fontSize_8, _format_fontSize_12,
 			_format_fontSize_16, _format_fontSize_20, _format_fontSize_24, _format_fontSize_28, _format_colorBlack,
-			__format_colorWhite, _format_colorBlue, _format_colorRed, _format_colorYellow,__format_markText;
+			__format_colorWhite, _format_colorBlue, _format_colorRed, _format_colorYellow, __format_markText;
 	MyJMenuTab _format_font, _format_fontSize, _format_textColor;
 	// View menu items
 	JMenuItem _view_lightMode, _view_darkMode;
@@ -66,6 +68,12 @@ public class MyMenu extends JMenuBar {
 		_file.add(_file_saveAs);
 		_file_print = new MyJMenuItem("Print", handler);
 		_file.add(_file_print);
+		_file_info = new MyJMenuTab("File info", handler);
+		_file.add(_file_info);
+		_file_info_words = new MyJMenuItem("Words count", handler);
+		_file_info.add(_file_info_words);
+		_file_info_characters = new MyJMenuItem("Characters count", handler);
+		_file_info.add(_file_info_characters);
 		_file_exit = new MyJMenuItem("Exit", handler);
 		_file.add(_file_exit);
 	}
@@ -91,7 +99,7 @@ public class MyMenu extends JMenuBar {
 		_format.add(_format_bold);
 		_format_italic = new MyJMenuItem("Italic", handler);
 		_format.add(_format_italic);
-		__format_markText= new MyJMenuItem("Mark text", handler);
+		__format_markText = new MyJMenuItem("Mark text", handler);
 		_format.add(__format_markText);
 	}
 

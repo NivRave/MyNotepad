@@ -102,4 +102,12 @@ public class FileFunctions {
 	public void print() {
 		window.getPanel().printContent();
 	}
+
+	public void countWords() {
+		window.getPanel().countWords();
+	}
+
+	public void countCharacters() {
+		window.getPanel().countCharacters();
+	}
 }

@@ -12,7 +12,6 @@ import OnclickFunctions.*;
 
 @SuppressWarnings("serial")
 public class MyJFrame extends JFrame {
-
 	// Panel and menu
 	Panel panel;
 	MyMenu menuBar;
@@ -34,15 +33,21 @@ public class MyJFrame extends JFrame {
 
 	// Initialize the handlers and functions objects
 	private void initHandlers() {
-		FileFunctions fileFunctionsObj = new FileFunctions(this);
-		EditFunctions editFunctionsObj = new EditFunctions(this);
-		FormatFunctions formatFunctionsObj = new FormatFunctions(this);
-		ViewFunctions viewFunctionsObj = new ViewFunctions(this);
-
+		// Init functions objects
+		FunctionsObjectFactory factory = new FunctionsObjectFactory();
+		FunctionsObject fileFunctionsObj = factory.getObject("file", this);
+		FunctionsObject editFunctionsObj = factory.getObject("edit", this);
+		FunctionsObject formatFunctionsObj = factory.getObject("format", this);
+		FunctionsObject viewFunctionsObj = factory.getObject("view", this);
+		// Previous creation method - pre-factory
+//		FileFunctions fileFunctionsObj = new FileFunctions(this);
+//		EditFunctions editFunctionsObj = new EditFunctions(this);
+//		FormatFunctions formatFunctionsObj = new FormatFunctions(this);
+//		ViewFunctions viewFunctionsObj = new ViewFunctions(this);
+		// Init handlers
 		handler = new MyHandler(this, fileFunctionsObj, editFunctionsObj, formatFunctionsObj, viewFunctionsObj);
 		keyHandler = new MyKeyHandler(this, fileFunctionsObj, editFunctionsObj, formatFunctionsObj, viewFunctionsObj);
-		mouseHandler = new MyMouseListener(this, fileFunctionsObj, editFunctionsObj, formatFunctionsObj,
-				viewFunctionsObj);
+		mouseHandler = new MyMouseListener(this);
 	}
 
 	// Initialize the window and panel

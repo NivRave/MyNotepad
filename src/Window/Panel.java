@@ -45,7 +45,12 @@ public class Panel extends JScrollPane {
 		});
 	}
 
-	// Get undo namager object
+	// Return the text area object
+	public TextArea getTextArea() {
+		return textArea;
+	}
+
+	// Get undo undo manager object
 	public UndoManager getUndoManager() {
 		return undoManager;
 	}
@@ -75,11 +80,9 @@ public class Panel extends JScrollPane {
 		switch (mode) {
 		case ("lightMode"):
 			textArea.lightMode();
-			//textArea.setBackground(Color.decode("#DDDDDD"));
 			break;
 		case ("darkMode"):
 			textArea.darkMode();
-			//textArea.setBackground(Color.decode("#423F3E"));
 			break;
 		}
 	}
@@ -126,20 +129,31 @@ public class Panel extends JScrollPane {
 		textArea.markText();
 	}
 
-	public void noMark() {
-		textArea.noMark();
-	}
-
+	// Document's word-count
 	public void countWords() {
 		textArea.countWords();
 	}
 
+	// Document's character-count
 	public void countCharacters() {
 		textArea.countCharacters();
 	}
 
+	// Return selected text
 	public String getSelectedText() {
 		return textArea.getSelectedText();
+	}
+
+	// Undo action
+	public void undo() {
+		if (undoManager.canUndo())
+			undoManager.undo();
+	}
+
+	// Redo action
+	public void redo() {
+		if (undoManager.canRedo())
+			undoManager.redo();
 	}
 
 }

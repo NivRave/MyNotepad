@@ -24,6 +24,16 @@ public class MyHandler implements ActionListener {
 		viewFunctionsObj = viewF;
 	}
 
+	// Factory supprting constructor
+	public MyHandler(MyJFrame window, FunctionsObject fileF, FunctionsObject editF, FunctionsObject formatF,
+			FunctionsObject viewF) {
+		this.window = window;
+		fileFunctionsObj = (FileFunctions) fileF;
+		editFunctionsObj = (EditFunctions) editF;
+		formatFunctionsObj = (FormatFunctions) formatF;
+		viewFunctionsObj = (ViewFunctions) viewF;
+	}
+
 	// Get file functions object
 	public FileFunctions getFileObj() {
 		return fileFunctionsObj;

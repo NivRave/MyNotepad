@@ -24,6 +24,15 @@ public class MyKeyHandler implements KeyListener {
 		viewFunctionsObj = viewF;
 	}
 
+	public MyKeyHandler(MyJFrame window, FunctionsObject fileF, FunctionsObject editF, FunctionsObject formatF,
+			FunctionsObject viewF) {
+		this.window = window;
+		fileFunctionsObj = (FileFunctions) fileF;
+		editFunctionsObj = (EditFunctions) editF;
+		formatFunctionsObj = (FormatFunctions) formatF;
+		viewFunctionsObj = (ViewFunctions) viewF;
+	}
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -39,30 +48,25 @@ public class MyKeyHandler implements KeyListener {
 			} else
 				fileFunctionsObj.saveFile();
 		}
-		//if (window.getPanel().isSelected() == true) {
-			// Ctrl+b = bold text
-			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
-				//formatFunctionsObj.toggleSpecificBoldText();
-			}
-			// Ctrl+i = italic text
-			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
-				//formatFunctionsObj.toggleSpecificItalicText();
-			}
-		//} else {
-			// Ctrl+b = bold text
-			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
-				formatFunctionsObj.toggleBoldText();
-			}
-			// Ctrl+i = italic text
-			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
-				formatFunctionsObj.toggleItalicText();
-			}
-			//Toggle mark text
-			if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_M) {
-				formatFunctionsObj.markText();
-			}
-			
-		//}
+		// Ctrl+b = bold text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
+			// formatFunctionsObj.toggleSpecificBoldText();
+		}
+		// Ctrl+i = italic text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
+		}
+		// Ctrl+b = bold text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
+			formatFunctionsObj.toggleBoldText();
+		}
+		// Ctrl+i = italic text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_I) {
+			formatFunctionsObj.toggleItalicText();
+		}
+		// Toggle mark text
+		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_M) {
+			formatFunctionsObj.markText();
+		}
 		// Ctrl+z = undo
 		if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
 			editFunctionsObj.undo();
@@ -81,9 +85,9 @@ public class MyKeyHandler implements KeyListener {
 		}
 		// Set save state=true if a text-changing key has been pressed
 		if (window.getSavedState() == true) {
-			if (isChar(e.getKeyCode()) == true)
-				formatFunctionsObj.noMark();
-				window.setSavedState(false);
+//			if (isChar(e.getKeyCode()) == true)
+//				formatFunctionsObj.noMark();
+			window.setSavedState(false);
 		}
 	}
 

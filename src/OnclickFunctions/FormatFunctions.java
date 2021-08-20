@@ -4,8 +4,7 @@ import java.awt.Color;
 
 import Window.MyJFrame;
 
-public class FormatFunctions {
-
+public class FormatFunctions implements FunctionsObject {
 	// Main frame
 	MyJFrame window;
 
@@ -55,12 +54,8 @@ public class FormatFunctions {
 		}
 	}
 
-	// Mark-Unmark text
+	// Mark text
 	public void markText() {
 		window.getPanel().markText();
-	}
-
-	public void noMark() {
-		window.getPanel().noMark();		
 	}
 }

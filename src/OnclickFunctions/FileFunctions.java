@@ -6,8 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import Window.MyJFrame;
 
-public class FileFunctions {
-
+public class FileFunctions implements FunctionsObject {
 	// Main frame
 	MyJFrame window;
 	// Current file name/path
@@ -26,6 +25,7 @@ public class FileFunctions {
 		window.setSavedState(false);
 		fileName = null;
 		filePath = null;
+		window.getPanel().getUndoManager().discardAllEdits();
 	}
 
 	// Open a local file from file explorer using fileDialog
@@ -103,10 +103,12 @@ public class FileFunctions {
 		window.getPanel().printContent();
 	}
 
+	// Document's words count method
 	public void countWords() {
 		window.getPanel().countWords();
 	}
 
+	// Document's characters count method
 	public void countCharacters() {
 		window.getPanel().countCharacters();
 	}

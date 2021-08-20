@@ -26,10 +26,7 @@ public class TextArea extends JTextPane {
 	// Private constructor to match the singleton design pattern
 	private TextArea() {
 		super();
-		// bgColor=Color.decode("#DDDDDD");
-		// attributes.addAttribute(StyleConstants.Background, bgColor);
-		txtColor = Color.decode("#423F3E");
-		attributes.addAttribute(StyleConstants.Foreground, txtColor);
+		lightMode();
 		fontSize = 12;
 		fontFamily = "Arial";
 	}
@@ -96,26 +93,12 @@ public class TextArea extends JTextPane {
 		if (getSelectedText() != null) {
 			if (attributes.getAttribute(StyleConstants.Background) == Color.yellow) {
 				attributes.removeAttribute(StyleConstants.Background);
-				// attributes.addAttribute(StyleConstants.Background, Color.yellow);
 			} else {
 				attributes.removeAttribute(StyleConstants.Background);
 				attributes.addAttribute(StyleConstants.Background, Color.yellow);
 			}
 			setCharacterAttributes(attributes, true);
 		}
-	}
-
-	// Revert mark text state
-	public void noMark() {
-
-//		if (attributes.getAttribute(attributes) == Color.white) {
-//			attributes.removeAttribute(StyleConstants.Background);
-//			attributes.addAttribute(StyleConstants.Background, Color.yellow);
-//		} else {
-//			attributes.removeAttribute(StyleConstants.Background);
-//			attributes.addAttribute(StyleConstants.Background, Color.white);
-//		}
-//		setCharacterAttributes(attributes, true);
 	}
 
 	// Count words in the text
@@ -135,12 +118,9 @@ public class TextArea extends JTextPane {
 	}
 
 	public void lightMode() {
-		bgColor=Color.decode("#DDDDDD");
+		bgColor = Color.decode("#DDDDDD");
 		txtColor = Color.decode("#423F3E");
-		//attributes.removeAttribute(StyleConstants.Background);
-		//attributes.addAttribute(StyleConstants.Background, bgColor);
 		setBackground(Color.decode("#DDDDDD"));
-		//StyleConstants.setBackground(attributes, Color.decode("#DDDDDD"));
 		attributes.removeAttribute(StyleConstants.Foreground);
 		attributes.addAttribute(StyleConstants.Foreground, txtColor);
 		setCharacterAttributes(attributes, true);
@@ -148,11 +128,7 @@ public class TextArea extends JTextPane {
 
 	public void darkMode() {
 		txtColor = Color.decode("#DDDDDD");
-//		bgColor=Color.decode("#423F3E");
-//		attributes.removeAttribute(StyleConstants.Background);
-//		attributes.addAttribute(StyleConstants.Background, bgColor);
 		setBackground(Color.decode("#423F3E"));
-//		StyleConstants.setBackground(attributes, Color.decode("#423F3E"));
 		attributes.removeAttribute(StyleConstants.Foreground);
 		attributes.addAttribute(StyleConstants.Foreground, txtColor);
 		setCharacterAttributes(attributes, true);
